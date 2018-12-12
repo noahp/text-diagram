@@ -457,8 +457,11 @@ var html_render = (function() {
 
       //message
       for(var idx = 0; idx < lines.length; idx++) {
-        for (var i = 0; i < lines[idx].length; ++i) {
-          cpoints.push(_cpoint(lines[idx].charAt(i), 1 + i, 1 + idx, 0));
+        const charlist = [...lines[idx]]
+        for (var i = 0; i < charlist.length; ++i) {
+          // from https://stackoverflow.com/a/46159939
+          // console.log(charlist[12]);
+          cpoints.push(_cpoint(charlist[i], 1 + i, 1 + idx, 0));
         }
       }
 
